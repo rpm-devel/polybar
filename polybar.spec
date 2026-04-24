@@ -1,20 +1,17 @@
 #
 # spec file for package polybar
-# Initially created for openSUSE
 #
 
 Name:           polybar
-Version:        3.3.0
-Release:        0
+Version:        3.7.2
+Release:        1%{?dist}
 Summary:        A fast and easy-to-use status bar
 License:        MIT
-Group:          System/GUI/Other
-URL:            https://github.com/jaagr/polybar
-Source:         https://github.com/jaagr/polybar/archive/%{version}.tar.gz
-#BuildRequires:  clang >= 3.4
-#BuildRequires:  cmake >= 3.1
+URL:            https://github.com/polybar/polybar
+Source:         https://github.com/polybar/polybar/releases/download/%{version}/%{name}-%{version}.tar.gz
+BuildRequires:  gcc-c++
+BuildRequires:  cmake >= 3.1
 BuildRequires:  pkgconfig
-#BuildRequires:  python-xml
 BuildRequires:  xcb-util-image-devel
 BuildRequires:  xcb-util-wm-devel
 # optional dependency
@@ -24,20 +21,11 @@ BuildRequires:  pkgconfig(cairo)
 BuildRequires:  pkgconfig(jsoncpp)
 BuildRequires:  pkgconfig(libcurl)
 BuildRequires:  pkgconfig(libpulse)
-BuildRequires:  pkgconfig(python)
+BuildRequires:  pkgconfig(python3)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-proto)
 BuildRequires:  pkgconfig(xcb-util)
-#%if 0%{?suse_version} <= 1315
-#BuildRequires:  i3-devel
-#%else
-#BuildRequires:  i3-gaps-devel
-#%endif
-%if 0%{?suse_version}
-BuildRequires:  libiw-devel
-%else
 BuildRequires:  wireless-tools-devel
-%endif
 
 %description
 A fast and easy-to-use status bar for tilling WM
@@ -67,4 +55,6 @@ make
 %{_datadir}/zsh/site-functions/_%{name}_msg
 
 %changelog
-
+* Fri Apr 24 2026 CasjaysDev <rpm-devel@casjaysdev.pro> - 3.7.2-1
+- Update to 3.7.2
+- Modernize spec for EL10
