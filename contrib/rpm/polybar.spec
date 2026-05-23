@@ -5,10 +5,9 @@
 
 Name:           polybar
 Version:        3.3.0
-Release:        0
+Release:        1%{?dist}
 Summary:        A fast and easy-to-use status bar
 License:        MIT
-Group:          System/GUI/Other
 URL:            https://github.com/jaagr/polybar
 Source:         https://github.com/jaagr/polybar/archive/%{version}.tar.gz
 BuildRequires:  clang >= 3.4
@@ -67,4 +66,5 @@ make
 %{_datadir}/zsh/site-functions/_%{name}_msg
 
 %changelog
-
+* Fri May 22 2026 CasjaysDev <rpm-devel@casjaysdev.pro> - 3.3.0-1
+- Fix spec violations: remove Group tag, set Release to 1%{?dist}
